@@ -1,0 +1,54 @@
+
+= getting-started
+
+This is based off the https://www.wildfly.org/get-started/[Wildfly getting started with wildfly].
+It has been modified to include jpa persistence (hibernate using the h2 database), validation, EJB and JSF
+
+You need Java (at least version 11, and preferably 17) and Maven installed on your machine.
+
+The `getting-started` project is a simple Jakarta EE application with a HTTP endpoint that is running in
+https://wildfly.org[WildFly].
+
+The `src/main` folder contains a simple 'Hello world' style Jakarta EE application using JAX-RS.
+
+== Building the application
+
+To run the application, you use Maven:
+
+[source,shell]
+----
+mvn clean package
+----
+
+Maven will compile the application, provision a WildFly server
+The WildFly server is created in `target/server` with the application deployed in it.
+
+== Running the application
+
+To run the application, run the commands:
+
+[source,shell]
+----
+cd target/server
+./bin/standalone.sh
+----
+
+the application can be accessed at http://localhost:8080/
+the api path is at http://localhost:8080/api
+
+
+== Testing the application
+
+To run integration tests to verify the application, you use Maven:
+
+[source,shell]
+----
+mvn clean package verify
+----
+
+Tests in `src/test` are run against the server in `target/server`.
+
+== Resources
+
+* https://wildfly.org[WildFly]
+* https://docs.wildfly.org[WildFly Documentation]
